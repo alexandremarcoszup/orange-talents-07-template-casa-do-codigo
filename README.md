@@ -1,3 +1,8 @@
-# Por favor faça um Fork desse projeto!
+# Projeto foqueado da casa do código
 
-## Está em dúvida de como fazer um Fork? Não tem problema! [Aqui tem uma explicação do que entendemos que você deve considerar!](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
+## Para saber como fiz o fork, acesse! [Aqui tem uma explicação de como será considerado!](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
+
+##Para saber como será rodado esse projeto:
+###Configs:
+* Porta:8081
+* Banco utilizado: Mysql

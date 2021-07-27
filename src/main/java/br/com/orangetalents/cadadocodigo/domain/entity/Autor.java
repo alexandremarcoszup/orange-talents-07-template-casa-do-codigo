@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import java.time.LocalDateTime;
 
@@ -19,7 +20,7 @@ public class Autor {
     @NotBlank
     private String nome;
 
-    @NotBlank
+    @NotBlank @Email
     private String email;
 
     @NotBlank
@@ -30,7 +31,7 @@ public class Autor {
 
     public Autor(){}
 
-    public Autor(String nome, String descricao, String email, LocalDateTime dataRegistro){
+    public Autor(String nome, String email, String descricao, LocalDateTime dataRegistro){
         this.nome = nome;
         this.descricao = descricao;
         this.email = email;

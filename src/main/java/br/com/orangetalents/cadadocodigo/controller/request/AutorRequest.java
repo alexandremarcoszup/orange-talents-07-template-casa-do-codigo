@@ -36,4 +36,8 @@ public class AutorRequest {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    public String getEmail() {
+        return this.email;
+    }
 }
