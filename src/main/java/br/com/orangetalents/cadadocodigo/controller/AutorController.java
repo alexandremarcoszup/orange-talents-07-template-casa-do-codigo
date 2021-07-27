@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/autor")
-public class CasaDoCodigoController {
+public class AutorController {
 
     @Autowired
     private AutorRepository autorRepository;
