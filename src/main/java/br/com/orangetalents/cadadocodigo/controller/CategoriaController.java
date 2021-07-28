@@ -25,6 +25,6 @@ public class CategoriaController {
 
         Categoria categoria = categoriaRepository.save(categoriaRequest.requestToEntity());
 
-        return ResponseEntity.ok(categoria.entityToResponse());
+        return ResponseEntity.ok(categoria.domainToResponse());
     }
 }

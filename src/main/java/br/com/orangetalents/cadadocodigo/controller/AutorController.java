@@ -25,6 +25,6 @@ public class AutorController {
 
         Autor autor = autorRepository.save(autorRequest.RequestToEntity());
 
-        return ResponseEntity.ok(autor.DomainToResponse());
+        return ResponseEntity.ok(autor.domainToResponse());
     }
 }

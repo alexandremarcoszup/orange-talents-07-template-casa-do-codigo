@@ -62,7 +62,7 @@ public class Autor {
         return dataRegistro;
     }
 
-    public AutorResponse DomainToResponse(){
+    public AutorResponse domainToResponse(){
         return new AutorResponse(this.id, this.nome, this.email, this.descricao, this.dataRegistro);
     }
 }

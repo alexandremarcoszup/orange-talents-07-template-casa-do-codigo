@@ -24,7 +24,7 @@ public class Categoria {
         this.nome = nome;
     }
 
-    public CategoriaResponse entityToResponse(){
+    public CategoriaResponse domainToResponse(){
         return new CategoriaResponse(this.id, this.nome);
     }
 }
