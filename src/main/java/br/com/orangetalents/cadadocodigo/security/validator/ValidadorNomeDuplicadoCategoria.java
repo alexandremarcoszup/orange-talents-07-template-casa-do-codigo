@@ -30,7 +30,7 @@ public class ValidadorNomeDuplicadoCategoria implements Validator {
         Optional<Categoria> categoriaOptional = categoriaRepository.findByNome(request.getNome());
 
         if (categoriaOptional.isPresent()){
-            errors.rejectValue("nome", "Categoria já existente" + request.getNome());
+            errors.rejectValue("nome",null, "Categoria já existente" + request.getNome());
         }
 
     }

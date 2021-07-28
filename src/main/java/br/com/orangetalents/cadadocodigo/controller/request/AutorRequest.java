@@ -1,6 +1,7 @@
 package br.com.orangetalents.cadadocodigo.controller.request;
 
 import br.com.orangetalents.cadadocodigo.domain.entity.Autor;
+import br.com.orangetalents.cadadocodigo.security.validator.UniqueValue;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Email;
@@ -13,7 +14,9 @@ public class AutorRequest {
     @NotBlank
     private String nome;
 
-    @NotEmpty @Email
+    @NotEmpty
+    @Email
+    @UniqueValue(domainClass = Autor.class, fieldName = "email")
     private String email;
 
     @NotEmpty @Length(max = 400)

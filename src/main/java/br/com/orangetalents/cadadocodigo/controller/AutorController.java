@@ -4,11 +4,12 @@ import br.com.orangetalents.cadadocodigo.controller.request.AutorRequest;
 import br.com.orangetalents.cadadocodigo.controller.response.AutorResponse;
 import br.com.orangetalents.cadadocodigo.domain.entity.Autor;
 import br.com.orangetalents.cadadocodigo.domain.repository.AutorRepository;
-import br.com.orangetalents.cadadocodigo.security.validator.ValidadorEmailDuplicado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
@@ -18,14 +19,6 @@ public class AutorController {
 
     @Autowired
     private AutorRepository autorRepository;
-
-    @Autowired
-    private ValidadorEmailDuplicado validadorEmailDuplicado;
-
-    @InitBinder
-    public void init(WebDataBinder binder){
-        binder.addValidators(validadorEmailDuplicado);
-    }
 
     @PostMapping
     public ResponseEntity<AutorResponse> cadastroAutor(@RequestBody @Valid AutorRequest autorRequest) {

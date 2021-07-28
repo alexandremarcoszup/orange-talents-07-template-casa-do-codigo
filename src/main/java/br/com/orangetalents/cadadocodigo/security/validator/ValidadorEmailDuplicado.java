@@ -16,7 +16,6 @@ public class ValidadorEmailDuplicado implements Validator {
     @Autowired
     private AutorRepository repository;
 
-
     @Override
     public boolean supports(Class<?> aClass) {
         return AutorRequest.class.isAssignableFrom(aClass);
@@ -31,7 +30,7 @@ public class ValidadorEmailDuplicado implements Validator {
         Optional<Autor> optionalAutorRequest = repository.findByEmail(request.getEmail());
 
         if (optionalAutorRequest.isPresent()){
-            errors.rejectValue("email", "Email já existente!" + request.getEmail());
+            errors.rejectValue("email",null, "Email já existente!" + request.getEmail());
         }
     }
 }
