@@ -56,6 +56,5 @@ public class LivroController {
 
         return livro.map(value -> ResponseEntity.ok(value.domainToDetalhesResponse()))
                 .orElseGet(() -> ResponseEntity.notFound().build());
-
     }
 }

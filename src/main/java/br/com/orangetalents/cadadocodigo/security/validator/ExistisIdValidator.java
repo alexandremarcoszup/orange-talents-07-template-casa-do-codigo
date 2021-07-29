@@ -18,6 +18,7 @@ public class ExistisIdValidator implements ConstraintValidator<ExistisId, Object
 
     @Override
     public void initialize(ExistisId params) {
+
         this.domainAttribute = params.fieldName();
         this.klass = params.domainClass();
     }
@@ -26,7 +27,7 @@ public class ExistisIdValidator implements ConstraintValidator<ExistisId, Object
     public boolean isValid(Object value, ConstraintValidatorContext context) {
 
         Query query = manager.createQuery("SELECT 1 FROM "+klass.getName()+" where "+domainAttribute+"=:value");
-        query.setParameter("value", Long.parseLong(value.toString()));
+        query.setParameter("value", value);
         List<?> list = query.getResultList();
 
         Assert.state(list.size() >= 0 , "Não foi encontrado nenhum "+ this.klass +" pelo id "+this.domainAttribute+"= "+value);
