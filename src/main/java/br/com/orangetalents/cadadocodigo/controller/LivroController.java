@@ -1,6 +1,7 @@
 package br.com.orangetalents.cadadocodigo.controller;
 
 import br.com.orangetalents.cadadocodigo.controller.request.LivroRequest;
+import br.com.orangetalents.cadadocodigo.controller.response.LivroDetalhesResponse;
 import br.com.orangetalents.cadadocodigo.controller.response.LivroResponse;
 import br.com.orangetalents.cadadocodigo.controller.response.LivroSimplesResponse;
 import br.com.orangetalents.cadadocodigo.domain.entity.Livro;
@@ -15,6 +16,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
+import java.util.Optional;
 
 import static br.com.orangetalents.cadadocodigo.controller.response.LivroSimplesResponse.convertToSimpleResponsePage;
 
@@ -44,5 +47,15 @@ public class LivroController {
         Page<Livro> livros = livroRepository.findAll(pageable);
 
         return ResponseEntity.ok(convertToSimpleResponsePage(livros));
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<LivroDetalhesResponse> detalharLivro(@PathVariable("id") Long id) {
+
+        Optional<Livro> livro = livroRepository.findById(id);
+
+        return livro.map(value -> ResponseEntity.ok(value.domainToDetalhesResponse()))
+                .orElseGet(() -> ResponseEntity.notFound().build());
+
     }
 }

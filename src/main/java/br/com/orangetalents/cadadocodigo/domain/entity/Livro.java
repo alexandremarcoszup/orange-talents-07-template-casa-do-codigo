@@ -1,5 +1,6 @@
 package br.com.orangetalents.cadadocodigo.domain.entity;
 
+import br.com.orangetalents.cadadocodigo.controller.response.LivroDetalhesResponse;
 import br.com.orangetalents.cadadocodigo.controller.response.LivroResponse;
 import br.com.orangetalents.cadadocodigo.controller.response.LivroSimplesResponse;
 
@@ -75,5 +76,11 @@ public class Livro {
 
     public LivroSimplesResponse domainToSimpleReponse() {
         return new LivroSimplesResponse(this.id, this.titulo);
+    }
+
+    public LivroDetalhesResponse domainToDetalhesResponse(){
+
+        return new LivroDetalhesResponse(this.titulo, this.resumo, this.sumario, this.preco, this.numeroPaginas, this.isbn,
+                this.dataLancamento, this.autor.domainToDetalhesResponse());
     }
 }

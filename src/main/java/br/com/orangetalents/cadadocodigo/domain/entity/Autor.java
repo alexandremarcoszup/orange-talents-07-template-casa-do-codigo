@@ -1,5 +1,6 @@
 package br.com.orangetalents.cadadocodigo.domain.entity;
 
+import br.com.orangetalents.cadadocodigo.controller.response.AutorDetalhesResponse;
 import br.com.orangetalents.cadadocodigo.controller.response.AutorResponse;
 
 import javax.persistence.Entity;
@@ -38,6 +39,14 @@ public class Autor {
         this.dataRegistro = dataRegistro;
     }
 
+    public AutorResponse domainToResponse(){
+        return new AutorResponse(this.id, this.nome, this.email, this.descricao, this.dataRegistro);
+    }
+
+    public AutorDetalhesResponse domainToDetalhesResponse(){
+        return new AutorDetalhesResponse(this.nome,this.descricao);
+    }
+
     public String getNome() {
         return nome;
     }
@@ -60,9 +69,5 @@ public class Autor {
 
     public LocalDateTime getDataRegistro() {
         return dataRegistro;
-    }
-
-    public AutorResponse domainToResponse(){
-        return new AutorResponse(this.id, this.nome, this.email, this.descricao, this.dataRegistro);
     }
 }
