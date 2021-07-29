@@ -1,6 +1,7 @@
 package br.com.orangetalents.cadadocodigo.domain.entity;
 
 import br.com.orangetalents.cadadocodigo.controller.response.LivroResponse;
+import br.com.orangetalents.cadadocodigo.controller.response.LivroSimplesResponse;
 
 import javax.persistence.*;
 import javax.validation.constraints.Future;
@@ -50,7 +51,8 @@ public class Livro {
     @NotNull
     private Autor autor;
 
-    public Livro(){}
+    public Livro() {
+    }
 
     public Livro(String titulo, String resumo, String sumario, Double preco, Integer numeroPaginas, Integer isbn, LocalDate dataLancamento,
                  Categoria categoria, Autor autor) {
@@ -66,8 +68,12 @@ public class Livro {
         this.autor = autor;
     }
 
-    public LivroResponse domainToResponse(){
-        return new LivroResponse(this.titulo,this.resumo,this.sumario,this.preco,this.numeroPaginas,this.isbn,this.dataLancamento,
-                categoria.domainToResponse(),this.autor.domainToResponse());
+    public LivroResponse domainToResponse() {
+        return new LivroResponse(this.titulo, this.resumo, this.sumario, this.preco, this.numeroPaginas, this.isbn, this.dataLancamento,
+                categoria.domainToResponse(), this.autor.domainToResponse());
+    }
+
+    public LivroSimplesResponse domainToSimpleReponse() {
+        return new LivroSimplesResponse(this.id, this.titulo);
     }
 }
