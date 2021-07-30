@@ -27,7 +27,11 @@ public class Estado {
         this.pais = pais;
     }
 
-    public EstadoResponse domainToResponse(){
+    public EstadoResponse domainToResponse() {
         return new EstadoResponse(this.id, this.nome, this.pais.domainToResponse());
+    }
+
+    public boolean verificaPais(Pais pais) {
+        return this.pais.getId().equals(pais.getId());
     }
 }
